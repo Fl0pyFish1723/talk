@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <title>Group Chat</title>
+    <style>
+      img {
+        width: 300px;
+        border-radius: 50px;
+        float: left;
+        margin-right: 10px;
+      }
+      body {
+        background-color: rgb(160, 9, 9);
+      }
+      .username {
+        font-weight: bold;
+      }
+
+      p {
+        font-size: xx-large;
+      }
+
+      h1 {
+        color: rgb(0, 0, 0);
+      }
+      .text {
+        color: rgb(34, 0, 255);
+      }
+
+      h1 {
+        color: rgb(0, 0, 0);
+      }
+      .username {
+        color: rgb(0, 255, 26);
+      }
+    </style>
+  </head>
+  <body>
+    <img src="images/bird.jpg" alt="picture of a bird on a branch" />
+    <p class="username">@clankhugs</p>
+    <p class="text">I love to eat chicken nuggets and fries super tasty</p>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Chat Feature</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        #chat-box {
+            width: 100%;
+            height: 300px;
+            border: 1px solid #000000;
+            padding: 10px;
+            overflow-y: scroll;
+            background-color: #8e0f0f;
+        
+        #message-input {
+            width: 80%;
+            padding: 10px;160, 9, 9
+            margin-top: 10px;}
+        #send-btn {
+            padding: 10px 20px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+        .message {
+            padding: 5px;
+            margin: 5px 0;
+            border-bottom: 1px solid #000000;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Welcome To The Group Chat!</h2>
+
+    <div id="chat-box"></div> <!-- Display chat messages here -->
+
+    <input type="text" id="message-input" placeholder="Type a message...">
+    <button id="send-btn">Send</button>
+
+    <script>
+        // Get elements
+        const chatBox = document.getElementById('chat-box');
+        const messageInput = document.getElementById('message-input');
+        const sendBtn = document.getElementById('send-btn');
+
+        // Function to add a message to the chat box
+        function addMessage(message) {
+            const messageDiv = document.createElement('div');
+            messageDiv.classList.add('message');
+            messageDiv.textContent = message;
+            chatBox.appendChild(messageDiv);
+
+            // Scroll to the bottom of the chat box after each new message
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }
+
+        // Send message when the button is clicked
+        sendBtn.addEventListener('click', () => {
+            const message = messageInput.value.trim();
+            if (message) {
+                addMessage(message);
+                messageInput.value = ''; // Clear the input field
+            }
+        });
+
+        // Allow sending message by pressing Enter
+        messageInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                sendBtn.click();
+            }
+        });
+    </script>
+
+
+  </body>
+</html>
